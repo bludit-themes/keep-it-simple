@@ -6,5 +6,5 @@ Theme designed by [Styleshout](http://www.styleshout.com/), adapted for Bludit b
 Versions
 --------
 
-1.0, August 12, 2018
+1.0, August 14, 2018
 - Release.
