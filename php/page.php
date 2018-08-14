@@ -25,7 +25,7 @@
 					$author = $User->firstName().' '.$User->lastName();
 				}
 		
-				echo <div class="entry-meta">
+				echo '<div class="entry-meta">';
 				echo '<ul>';
 				echo '<li>'.$page->date().'</li>';
 				echo ' <span class="meta-sep">&bull;</span> ';
@@ -41,7 +41,7 @@
 				}
 
 				else {
-					echo '<div class="meta-empty"></div>';
+					echo '<div class="meta-empty">';
 				}
 
 			}	
@@ -71,40 +71,42 @@
 		$i = 0;
 		$len = count($tags);
 
-		if ( $len >= 1) {
+			if ( $len >= 1) {
 
-			echo '<p class="tags">';
+				echo '<p class="tags">';
 
-			if ($i == 0 &&  $len == 1 ) {
+				if ($i == 0 &&  $len == 1 ) {
 
-				echo $L->get('Tag');
+					echo $L->get('Tag');
 
-				foreach($tags as $tagKey=>$tagName) {
-					echo ': <a href="'.HTML_PATH_ROOT.$Url->filters('tag').'/'.$tagKey.'">'.$tagName.'</a>';
-				}
-			}
-
-			else {
-
-				echo $L->get('Tags');
-
-				foreach($tags as $tagKey=>$tagName) {
-
-					if ($i == 0) {
+					foreach($tags as $tagKey=>$tagName) {
 						echo ': <a href="'.HTML_PATH_ROOT.$Url->filters('tag').'/'.$tagKey.'">'.$tagName.'</a>';
 					}
+				}
 
-					else
-					{
-						echo ', <a href="'.HTML_PATH_ROOT.$Url->filters('tag').'/'.$tagKey.'">'.$tagName.'</a></li>';
-					}
+				else {
+
+					echo $L->get('Tags');
+
+					foreach($tags as $tagKey=>$tagName) {
+
+						if ($i == 0) {
+							echo ': <a href="'.HTML_PATH_ROOT.$Url->filters('tag').'/'.$tagKey.'">'.$tagName.'</a>';
+						}
+
+						else
+						{
+							echo ', <a href="'.HTML_PATH_ROOT.$Url->filters('tag').'/'.$tagKey.'">'.$tagName.'</a></li>';
+						}
 
 					$i++;
 
+					}
+
 				}
 
 			}
-
+			
 			echo '</p>';
 
 		}
