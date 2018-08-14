@@ -21,8 +21,8 @@
 
       <div id="main" class="eight columns">
 
-	    <!-- Content -->
-	    <?php
+	<!-- Content -->
+		<?php
 		  // $WHERE_AM_I variable detect where the user is browsing
 		  // If the user is watching a particular page the variable takes the value "page"
 		  // If the user is watching the frontpage the variable takes the value "home"
@@ -38,8 +38,8 @@
 
       <!-- Right Sidebar -->
 
-	    <div id="sidebar" class="four columns">
-		    <?php include(THEME_DIR_PHP.'sidebar.php'); ?>
+	<div id="sidebar" class="four columns">
+	<?php Theme::plugins('siteSidebar') ?>
       </div> <!-- end sidebar -->
 
     </div> <!-- end row -->
