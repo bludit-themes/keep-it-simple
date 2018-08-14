@@ -38,16 +38,15 @@
 				echo '<li>'.$author.'</li>';
 				echo '</ul>';
 
-				}
+			}
 
-				else {
-					echo '<div class="meta-empty">';
-				}
-
-			}	
+			else {
+				echo '<div class="meta-empty">';
+			}
+	
 			?>
 			</div>
-
+		
 		</header>
 
 	    <!-- Cover image -->
@@ -104,14 +103,12 @@
 					}
 
 				}
+			
+				echo '</p>';
 
 			}
-			
-			echo '</p>';
 
 		}
-
-	}
 
 	?>
 
