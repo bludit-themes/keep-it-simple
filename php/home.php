@@ -7,14 +7,14 @@
 
 <article class="entry">
 
-  <header class="entry-header">
+	<header class="entry-header">
 
 	<!-- Page title -->
 	<h2 class="entry-title">
 	<a href="<?php echo $page->permalink(); ?>"><?php echo $page->title(); ?></a>
 	</h2>
 
-	  <div class="entry-meta">
+		<div class="entry-meta">
 		<?php
 
 		// Get the user who created the post.
@@ -29,16 +29,19 @@
 		}
 
 		?>
-		  <ul>
-		    <li><?php echo $page->date(); ?></li>
-			    <span class="meta-sep">&bull;</span>
-			  <li><a href="<?php echo HTML_PATH_ROOT.$Url->filters('category').'/'.strtolower($page->category()); ?>"><?php echo $page->category(); ?></a></li>
-			    <span class="meta-sep">&bull;</span>
-			  <li><?php echo $author; ?></li>
-		  </ul>
+			<ul>
+		    	<li><?php echo $page->date(); ?></li>
+			    	<span class="meta-sep">&bull;</span>
+				if ($page->category() ==! "") {
+			  		echo '<li><a href="'.HTML_PATH_ROOT.$Url->filters('category').'/'.strtolower($page->category()).'">'.$page->category().'</a></li>';
+					echo ' <span class="meta-sep">&bull;</span> ';
+				}
+					<span class="meta-sep">&bull;</span>
+			  	<li><?php echo $author; ?></li>
+		  	</ul>
 		</div>
 
-  </header>
+  	</header>
 
 	<div class="entry-content">
 
@@ -52,7 +55,7 @@
 	<a class="btn btn-primary btn-sm" href="<?php echo $page->permalink(); ?>" role="button"><?php echo $Language->get('Read more'); ?></a>
 	<?php endif ?>
 
-  </div>
+ 	</div>
 
  </article> <!-- end entry -->
 
@@ -63,17 +66,17 @@
 
 <!-- Pagination -->
 <?php if (Paginator::amountOfPages()>1): ?>
-  <ul class="post-nav group">
-  <?php
+ 	<ul class="post-nav group">
+  	<?php
 	// Show previus page link
-	  if(Paginator::showPrev()) {
-	    echo '<li class="prev"><a rel="prev" href="'.Paginator::prevPageUrl().'"><strong>'.$L->get('Previous page').'</strong></a></li>';
+	if(Paginator::showPrev()) {
+		echo '<li class="prev"><a rel="prev" href="'.Paginator::prevPageUrl().'"><strong>'.$L->get('Previous page').'</strong></a></li>';
     }
 
   	// Show next page link
-		if(Paginator::showNext()) {
-		  echo '<li class="next"><a rel="next" href="'.Paginator::nextPageUrl().'"><strong>'.$L->get('Next page').'</strong></a></li>';
+	if(Paginator::showNext()) {
+		echo '<li class="next"><a rel="next" href="'.Paginator::nextPageUrl().'"><strong>'.$L->get('Next page').'</strong></a></li>';
     }
-?>
-</ul>
+	?>
+	</ul>
 <?php endif ?>
