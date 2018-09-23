@@ -8,27 +8,39 @@
 
       <!-- Social Networks -->
 			<?php if ($site->facebook()): ?>
-			<li><a href="<?php echo $site->facebook(); ?>" target="_blank"><i class="fa fa-facebook"></i></a></li>
+			<li><a href="<?php echo $site->facebook(); ?>" target="_blank"><i class="fab fa-facebook"></i></a></li>
 			<?php endif ?>
-      
+
 			<?php if ($site->twitter()): ?>
-			<li><a href="<?php echo $site->twitter(); ?>" target="_blank"><i class="fa fa-twitter"></i></a></li>
+			<li><a href="<?php echo $site->twitter(); ?>" target="_blank"><i class="fab fa-twitter"></i></a></li>
+			<?php endif ?>
+
+			<?php if ($site->codepen()): ?>
+			<li><a href="<?php echo $site->codepen(); ?>" target="_blank"><i class="fab fa-codepen"></i></a></li>
 			<?php endif ?>
 
 			<?php if ($site->googleplus()): ?>
-			<li><a href="<?php echo $site->googleplus(); ?>" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+			<li><a href="<?php echo $site->googleplus(); ?>" target="_blank"><i class="fab fa-google-plus"></i></a></li>
 			<?php endif ?>
-      
-      <?php if ($site->github()): ?>
-			<li><a href="<?php echo $site->github(); ?>" target="_blank"><i class="fa fa-github"></i></a></li>
+
+			<?php if ($site->instagram()): ?>
+			<li><a href="<?php echo $site->instagram(); ?>" target="_blank"><i class="fab fa-instagram"></i></a></li>
+			<?php endif ?>
+
+			<?php if ($site->gitlab()): ?>
+			<li><a href="<?php echo $site->gitlab(); ?>" target="_blank"><i class="fab fa-gitlab"></i></a></li>
+			<?php endif ?>
+
+      		<?php if ($site->github()): ?>
+			<li><a href="<?php echo $site->github(); ?>" target="_blank"><i class="fab fa-github"></i></a></li>
 			<?php endif ?>
 
 			<?php if ($site->linkedin()): ?>
-			<li><a href="<?php echo $site->linkedin(); ?>" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+			<li><a href="<?php echo $site->linkedin(); ?>" target="_blank"><i class="fab fa-linkedin"></i></a></li>
 			<?php endif ?>
-            
-      <?php if ($site->codepen()): ?>
-			<li><a href="<?php echo $site->codepen(); ?>" target="_blank"><i class="fa fa-github"></i></a></li>
+
+      		<?php if ($site->mastodon()): ?>
+			<li><a href="<?php echo $site->mastodon(); ?>" target="_blank"><i class="fab fa-mastodon"></i></a></li>
 			<?php endif ?>
 
       </ul>
@@ -39,6 +51,6 @@
 
   </div>
 
-  <div id="go-top"><a class="smoothscroll" title="Back to Top" href="#top"><i class="fa fa-chevron-up"></i></a></div>
+  <div id="go-top"><a class="smoothscroll" title="Back to Top" href="#top"><i class="fas fa-chevron-up"></i></a></div>
 
 </footer>

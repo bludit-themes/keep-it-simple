@@ -10,9 +10,9 @@
 			<h2 class="entry-title">
 				<?php echo $page->title(); ?>
 			</h2>
-				
+
 			<?php
-			if ($page->status() == "published") {				
+			if ($page->type() == "published") {
 
 				// Get the user who created the post.
 				$User = $page->user();
@@ -24,7 +24,7 @@
 				if( Text::isNotEmpty($User->firstName()) || Text::isNotEmpty($User->lastName()) ) {
 					$author = $User->firstName().' '.$User->lastName();
 				}
-		
+
 				echo '<div class="entry-meta">';
 				echo '<ul>';
 				echo '<li>'.$page->date().'</li>';
@@ -43,10 +43,10 @@
 			else {
 				echo '<div class="meta-empty">';
 			}
-	
+
 			?>
 			</div>
-		
+
 		</header>
 
 	    <!-- Cover image -->
@@ -63,7 +63,7 @@
 		</div>
 
 		<?php
-  		if ($page->status() == "published") {
+  		if ($page->type() == "published") {
 
  		$tags = $Page->tags(true);
 
@@ -103,7 +103,7 @@
 					}
 
 				}
-			
+
 				echo '</p>';
 
 			}
