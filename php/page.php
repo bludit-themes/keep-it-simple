@@ -65,7 +65,7 @@
 		<?php
   		if ($page->type() == "published") {
 
- 		$tags = $Page->tags(true);
+ 		$tags = $page->tags(true);
 
 		$i = 0;
 		$len = count($tags);
@@ -79,7 +79,7 @@
 					echo $L->get('Tag');
 
 					foreach($tags as $tagKey=>$tagName) {
-						echo ': <a href="'.HTML_PATH_ROOT.$Url->filters('tag').'/'.$tagKey.'">'.$tagName.'</a>';
+						echo ': <a href="'.HTML_PATH_ROOT.$url->filters('tag').'/'.$tagKey.'">'.$tagName.'</a>';
 					}
 				}
 
@@ -90,12 +90,12 @@
 					foreach($tags as $tagKey=>$tagName) {
 
 						if ($i == 0) {
-							echo ': <a href="'.HTML_PATH_ROOT.$Url->filters('tag').'/'.$tagKey.'">'.$tagName.'</a>';
+							echo ': <a href="'.HTML_PATH_ROOT.$url->filters('tag').'/'.$tagKey.'">'.$tagName.'</a>';
 						}
 
 						else
 						{
-							echo ', <a href="'.HTML_PATH_ROOT.$Url->filters('tag').'/'.$tagKey.'">'.$tagName.'</a></li>';
+							echo ', <a href="'.HTML_PATH_ROOT.$url->filters('tag').'/'.$tagKey.'">'.$tagName.'</a></li>';
 						}
 
 					$i++;
