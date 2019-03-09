@@ -1,61 +1,83 @@
-<div class="content section-inner">
-	<div class="posts">
-	<?php foreach($content as $page): ?>
-		<div class="post format-standard">
-			<div class="post-bubbles">
-				<a href="<?php echo $page->permalink() ?>" class="format-bubble" title="<?php echo $page->title() ?>"></a>
-			</div>
-			<div class="content-inner">
-				<div class="post-header">
-				
-					<?php if($page->coverImage()) {
-							echo '<div class="featured-media">';
-							echo 	'<img class="attachment-post-image wp-post-image cover-image" src="'.$page->coverImage().'" alt="Cover Image">';
-							echo		'<div class="media-caption-container">';
-							echo			'<a href="'.$page->permalink().'" rel="bookmark" title="'.$page->title().'">';
-							echo				'<p class="media-caption">'.$page->description().'</p>';
-							echo			'</a>';
-							echo		'</div>';
-							echo '</div> <!-- /featured-media -->';
-					} ?>
-					
-					<h2 class="post-title"><a href="<?php echo $page->permalink() ?>" rel="bookmark" title="<?php echo $page->title() ?>"><?php echo $page->title() ?></a></h2>
-					<div class="post-meta">
+<!-- Print all the content -->
 
-						<span class="post-date"><a href="<?php echo $page->permalink() ?>" title="<?php echo $page->date() ?>"><?php echo $page->date() ?></a></span>
-						<span class="date-sep"> / </span>
-						<span class="post-author"><?php
-							if( Text::isNotEmpty($page->user('firstName')) || Text::isNotEmpty($page->user('lastName')) ) {
-								echo $page->user('firstName').' '.$page->user('lastName');
-							}
-							else {
-								echo $page->user('username');
-							}
-						?></span>
-												
-					</div>
-				</div>
-				
-				<div class="post-content">
-					<!-- Page content until the pagebreak -->
-					<?php echo $page->contentBreak(); ?>
-					
-					<?php if($page->readMore()) { ?>
-						<a class="read-more" href="<?php echo $page->permalink() ?>"><?php $L->printMe('Read more') ?></a>
-					<?php } ?>
-					
-				</div>
-				<div class="clear"></div>				
-			</div>
-			<div class="clear"></div>
-			<div class="clear"></div>
+<?php foreach ($content as $page): ?>
+
+<!-- Load Bludit Plugins: Page Begin -->
+<?php Theme::plugins('pageBegin'); ?>
+
+<article class="entry">
+
+	<header class="entry-header">
+
+	<!-- Page title -->
+	<h2 class="entry-title">
+	<a href="<?php echo $page->permalink(); ?>"><?php echo $page->title(); ?></a>
+	</h2>
+
+		<div class="entry-meta">
+		<?php
+
+		// Get the user who created the post.
+		$User = $page->user();
+
+		// Default author is the username.
+		$author = $User->username();
+
+		// If the user complete the first name or last name this will be the author.
+		if( Text::isNotEmpty($User->firstName()) || Text::isNotEmpty($User->lastName()) ) {
+		  $author = $User->firstName().' '.$User->lastName();
+		}
+
+		?>
+			<ul>
+		    	<li><?php echo $page->date(); ?></li>
+			    	<span class="meta-sep">&bull;</span>
+				<?php
+				if ($page->category() ==! "") {
+			  		echo '<li><a href="'.HTML_PATH_ROOT.$url->filters('category').'/'.strtolower($page->category()).'">'.$page->category().'</a></li>';
+					echo ' <span class="meta-sep">&bull;</span> ';
+				}
+				?>
+			  	<li><?php echo $author; ?></li>
+		  	</ul>
 		</div>
-		<?php endforeach; ?>
-		
-		<div class="post-nav archive-nav">
-			<?php echo Paginator::html(); ?>
-		</div>
-		
-		<div class="clear"></div>
+
+  	</header>
+
+	<div class="entry-content">
+
+	<!-- Page content until the pagebreak -->
+	<div>
+	<?php echo $page->contentBreak(); ?>
 	</div>
-</div>
+
+	<!-- Shows "read more" button if necessary -->
+	<?php if ($page->readMore()): ?>
+	<a class="btn btn-primary btn-sm" href="<?php echo $page->permalink(); ?>" role="button"><?php echo $Language->get('Read more'); ?></a>
+	<?php endif ?>
+
+ 	</div>
+
+ </article> <!-- end entry -->
+
+<!-- Load Bludit Plugins: Page End -->
+<?php Theme::plugins('pageEnd'); ?>
+
+<?php endforeach ?>
+
+<!-- Pagination -->
+<?php if (Paginator::numberOfPages()>1): ?>
+ 	<ul class="post-nav group">
+  	<?php
+	// Show previus page link
+	if(Paginator::showPrev()) {
+		echo '<li class="prev"><a rel="prev" href="'.Paginator::previousPageUrl().'"><strong>'.$L->get('Previous page').'</strong></a></li>';
+    }
+
+  	// Show next page link
+	if(Paginator::showNext()) {
+		echo '<li class="next"><a rel="next" href="'.Paginator::nextPageUrl().'"><strong>'.$L->get('Next page').'</strong></a></li>';
+    }
+	?>
+	</ul>
+<?php endif ?>
