@@ -19,10 +19,6 @@
 			<li><a href="<?php echo $site->codepen(); ?>" target="_blank"><i class="fab fa-codepen"></i></a></li>
 			<?php endif ?>
 
-			<?php if ($site->googleplus()): ?>
-			<li><a href="<?php echo $site->googleplus(); ?>" target="_blank"><i class="fab fa-google-plus"></i></a></li>
-			<?php endif ?>
-
 			<?php if ($site->instagram()): ?>
 			<li><a href="<?php echo $site->instagram(); ?>" target="_blank"><i class="fab fa-instagram"></i></a></li>
 			<?php endif ?>
