@@ -1,3 +1,7 @@
+#nav-wrap > a::before {
+    font-family: 'Font Awesome 5 Free';
+}
+
 h2.plugin-label {
     font-size: 15px;
     font-family: "opensans-bold", sans-serif;
