@@ -1,5 +1,6 @@
 #nav-wrap > a::before {
     font-family: 'Font Awesome 5 Free';
+    font-weight: 600;
 }
 
 h2.plugin-label {
